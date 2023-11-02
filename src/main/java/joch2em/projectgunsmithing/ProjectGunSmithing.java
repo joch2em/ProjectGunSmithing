@@ -28,10 +28,16 @@ public class ProjectGunSmithing implements ModInitializer {
 
 	private void registerItems() {
 		try {
-			Registry.register(Registry.ITEM, new Identifier("gunsmithing", "refined_iron"), modItem);
+			// refined_iron	items
+			Registry.register(Registry.ITEM, new Identifier("gunsmithing", "refined_iron_ingot"), modItem);
+			//for some reason it doesnt wanna register these??!?
+			Registry.register(Registry.ITEM, new Identifier("gunsmithing", "refined_iron_nugget"), modItem);
 			Registry.register(Registry.ITEM, new Identifier("gunsmithing", "refined_iron_block"), modItem);
+
+
 			LOGGER.info("Registered item!");
 		} catch (Exception e) {
+
 			LOGGER.error("Could not register item!");
 		}
 	}
