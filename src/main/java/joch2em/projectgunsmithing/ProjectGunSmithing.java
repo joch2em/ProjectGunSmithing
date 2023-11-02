@@ -1,5 +1,8 @@
 package joch2em.projectgunsmithing;
 
+import joch2em.projectgunsmithing.blocks.Refined_iron_block;
+import joch2em.projectgunsmithing.items.Refined_iron_ingot;
+import joch2em.projectgunsmithing.items.Refined_iron_nugget;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -27,19 +30,22 @@ public class ProjectGunSmithing implements ModInitializer {
 
 	public static final String MOD_ID = "gunsmithing";
 
+	//INITIATE BLOCK/ITEM/ENTITIES HERE
 
 	//ITEMS
-
+	public static final Item REFINED_IRON = new Refined_iron_ingot(new Item.Settings());
+	public static final Item REFINED_IRON_NUGGET = new Refined_iron_nugget(new Item.Settings());
 
 	//BLOCKS
 
-	public static final Block REFINED_IRON_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).strength(4.0f));
+	public static final Block REFINED_IRON_BLOCK = new Refined_iron_block(FabricBlockSettings.of(Material.METAL).strength(4.0f));
 
 	private static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(new Identifier(MOD_ID, "gunsmithing"))
 			.icon(() -> new ItemStack(REFINED_IRON_BLOCK))
 			.appendItems(((itemStacks, itemGroup) -> {
 				itemStacks.add(new ItemStack(REFINED_IRON_BLOCK));
-				// ADD ITEMS AND BLOCKS HERE
+				itemStacks.add(new ItemStack(REFINED_IRON));
+				itemStacks.add(new ItemStack(REFINED_IRON_NUGGET));
 			}))
 			.build();
 
@@ -49,13 +55,11 @@ public class ProjectGunSmithing implements ModInitializer {
 		registerItems();
 	}
 
-
 	private void registerItems() {
+		// REGISTER THE ITEMS/BLOCKS/ENTITIES HERE
 		try {
-			// TODO: Fix this shit
-			//Registry.register(Registry.ITEM, new Identifier(MOD_ID, "refined_iron"), new Item(Items));
-			//Registry.register(Registry.ITEM, new Identifier(MOD_ID, "refined_iron_nugget"), new Item(Items));
-			// working
+			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "refined_iron_ingot"), REFINED_IRON);
+			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "refined_iron_nugget"), REFINED_IRON_NUGGET);
 			Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "refined_iron_block"), REFINED_IRON_BLOCK);
 			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "refined_iron_block"), new BlockItem(REFINED_IRON_BLOCK, new FabricItemSettings()));
 
