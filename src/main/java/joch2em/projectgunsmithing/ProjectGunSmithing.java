@@ -9,13 +9,20 @@ import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Material;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.World;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -40,7 +47,12 @@ public class ProjectGunSmithing implements ModInitializer {
 	//BLOCKS
 
 	public static final Block REFINED_IRON_BLOCK = new Refined_iron_block(FabricBlockSettings.of(Material.METAL).strength(4.0f));
-	public static final Block GUN_CONFIGURATOR = new Gun_configurator(FabricBlockSettings.of(Material.REPAIR_STATION).strength(2.0f));
+	public static final Block GUN_CONFIGURATOR = new Gun_configurator(FabricBlockSettings.of(Material.REPAIR_STATION).strength(2.0f)) {
+		@Override
+		public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+			return null;
+		}
+	};
 	private static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(new Identifier(MOD_ID, "gunsmithing"))
 			.icon(() -> new ItemStack(REFINED_IRON_INGOT))
 			.appendItems(((itemStacks, itemGroup) -> {

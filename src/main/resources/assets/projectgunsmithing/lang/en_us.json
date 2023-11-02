@@ -2,5 +2,6 @@
   "itemGroup.projectgunsmithing.gunsmithing": "Gunsmithing",
   "block.projectgunsmithing.refined_iron_block": "Refined iron block",
   "item.projectgunsmithing.refined_iron_ingot": "Refined iron ingot",
-  "item.projectgunsmithing.refined_iron_nugget": "Refined iron nugget"
+  "item.projectgunsmithing.refined_iron_nugget": "Refined iron nugget",
+  "block.projectgunsmithing.gun_configurator": "Gun configurator"
 }

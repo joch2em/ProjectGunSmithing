@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "projectgunsmithing:block/gun_configurator_base",
+    "east": "projectgunsmithing:block/gun_configurator_base",
+    "north": "projectgunsmithing:block/gun_configurator_base",
+    "particle": "projectgunsmithing:block/gun_configurator_base",
+    "south": "projectgunsmithing:block/gun_configurator_base",
+    "up": "projectgunsmithing:block/gun_configurator_top",
+    "west": "projectgunsmithing:block/gun_configurator_base"
+  }
+}

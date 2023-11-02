@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "projectgunsmithing:block/gun_configurator"
+    }
+  }
+}
