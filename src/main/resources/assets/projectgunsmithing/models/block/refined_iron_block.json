@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "gunsmithing:block/refined_iron_block"
+    "all": "projectgunsmithing:block/refined_iron_block"
   }
 }

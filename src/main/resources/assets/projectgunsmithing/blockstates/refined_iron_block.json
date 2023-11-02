@@ -1,6 +1,6 @@
 {
   "variants": {
-    "": {"model": "gunsmithing:block/refined_iron_block"}
+    "": {"model": "projectgunsmithing:block/refined_iron_block"}
   }
 
 }
