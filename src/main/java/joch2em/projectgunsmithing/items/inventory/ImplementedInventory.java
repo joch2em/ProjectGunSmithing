@@ -1,6 +1,5 @@
 package joch2em.projectgunsmithing.items.inventory;
 
-import joch2em.projectgunsmithing.blocks.entity.NBTCompound;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
@@ -9,7 +8,6 @@ import net.minecraft.util.collection.DefaultedList;
 
 /**
  * A simple {@code Inventory} implementation with only default methods + an item list getter.
- *
  * Originally by Juuz
  */
 public interface ImplementedInventory extends Inventory {
@@ -129,6 +127,4 @@ public interface ImplementedInventory extends Inventory {
     default boolean canPlayerUse(PlayerEntity player) {
         return true;
     }
-
-    void readNBT(NBTCompound nbt);
 }
