@@ -49,18 +49,19 @@ public class ProjectGunSmithing implements ModInitializer {
 		registerItems();
 	}
 
+
 	private void registerItems() {
-			try {
-				// TODO: Fix this shit
-				Registry.register(Registry.ITEM, new Identifier(MOD_ID, "refined_iron"), new Item(Items));
-				Registry.register(Registry.ITEM, new Identifier(MOD_ID, "refined_iron_nugget"), new Item(Items));
-				// working
-				Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "refined_iron_block"), REFINED_IRON_BLOCK);
-				Registry.register(Registry.ITEM, new Identifier(MOD_ID, "refined_iron_block"), new BlockItem(REFINED_IRON_BLOCK, new FabricItemSettings()));
+		try {
+			// TODO: Fix this shit
+			//Registry.register(Registry.ITEM, new Identifier(MOD_ID, "refined_iron"), new Item(Items));
+			//Registry.register(Registry.ITEM, new Identifier(MOD_ID, "refined_iron_nugget"), new Item(Items));
+			// working
+			Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "refined_iron_block"), REFINED_IRON_BLOCK);
+			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "refined_iron_block"), new BlockItem(REFINED_IRON_BLOCK, new FabricItemSettings()));
 
-				LOGGER.info("Registered items!");
-			} catch (Exception e) {
-				LOGGER.error("Could not register item!");
-			}
+			LOGGER.info("Registered items!");
+		} catch (Exception e) {
+			LOGGER.error("Could not register item!");
 		}
-
+	}
+}
