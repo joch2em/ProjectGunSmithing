@@ -28,7 +28,7 @@ public class ProjectGunSmithing implements ModInitializer {
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger("projectgunsmithing");
 
-	public static final String MOD_ID = "gunsmithing";
+	public static final String MOD_ID = "projectgunsmithing";
 
 	//INITIATE BLOCK/ITEM/ENTITIES HERE
 
