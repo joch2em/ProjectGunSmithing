@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "nnn",
+    "nnn",
+    "nnn"
+  ],
+  "key": {
+    "n": {
+      "tag": "projectgunsmithing:refined_iron_nugget"
+    }
+  },
+
+  "result": {
+    "item": "projectgunsmithing:refined_iron_ingot",
+    "count": 1
+  }
+}
