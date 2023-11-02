@@ -1,5 +1,6 @@
 package joch2em.projectgunsmithing;
 
+import joch2em.projectgunsmithing.blocks.Gun_configurator;
 import joch2em.projectgunsmithing.blocks.Refined_iron_block;
 import joch2em.projectgunsmithing.items.Refined_iron_ingot;
 import joch2em.projectgunsmithing.items.Refined_iron_nugget;
@@ -33,19 +34,20 @@ public class ProjectGunSmithing implements ModInitializer {
 	//INITIATE BLOCK/ITEM/ENTITIES HERE
 
 	//ITEMS
-	public static final Item REFINED_IRON = new Refined_iron_ingot(new Item.Settings());
+	public static final Item REFINED_IRON_INGOT = new Refined_iron_ingot(new Item.Settings());
 	public static final Item REFINED_IRON_NUGGET = new Refined_iron_nugget(new Item.Settings());
 
 	//BLOCKS
 
 	public static final Block REFINED_IRON_BLOCK = new Refined_iron_block(FabricBlockSettings.of(Material.METAL).strength(4.0f));
-
+	public static final Block GUN_CONFIGURATOR = new Gun_configurator(FabricBlockSettings.of(Material.REPAIR_STATION).strength(2.0f));
 	private static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(new Identifier(MOD_ID, "gunsmithing"))
-			.icon(() -> new ItemStack(REFINED_IRON_BLOCK))
+			.icon(() -> new ItemStack(REFINED_IRON_INGOT))
 			.appendItems(((itemStacks, itemGroup) -> {
 				itemStacks.add(new ItemStack(REFINED_IRON_BLOCK));
-				itemStacks.add(new ItemStack(REFINED_IRON));
+				itemStacks.add(new ItemStack(REFINED_IRON_INGOT));
 				itemStacks.add(new ItemStack(REFINED_IRON_NUGGET));
+				itemStacks.add(new ItemStack(GUN_CONFIGURATOR));
 			}))
 			.build();
 
@@ -58,10 +60,12 @@ public class ProjectGunSmithing implements ModInitializer {
 	private void registerItems() {
 		// REGISTER THE ITEMS/BLOCKS/ENTITIES HERE
 		try {
-			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "refined_iron_ingot"), REFINED_IRON);
+			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "refined_iron_ingot"), REFINED_IRON_INGOT);
 			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "refined_iron_nugget"), REFINED_IRON_NUGGET);
 			Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "refined_iron_block"), REFINED_IRON_BLOCK);
 			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "refined_iron_block"), new BlockItem(REFINED_IRON_BLOCK, new FabricItemSettings()));
+			Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "gun_configurator"), GUN_CONFIGURATOR);
+			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "gun_configurator"), new BlockItem(GUN_CONFIGURATOR, new FabricItemSettings()));
 
 			LOGGER.info("Registered items!");
 		} catch (Exception e) {
