@@ -22,7 +22,7 @@ public class ProjectGunSmithing implements ModInitializer {
 		// Proceed with mild caution.
 		LOGGER.info("Hello Fabric world!");
 
-		// registering a item called refined_iron with the id test.refined_iron
+		// registering an item called refined_iron with the id test.refined_iron
 		Registry.register(Registry.ITEM, new Identifier("gunsmithing", "refined_iron"), modItem);
 		LOGGER.info("Registered item!");
 	}
