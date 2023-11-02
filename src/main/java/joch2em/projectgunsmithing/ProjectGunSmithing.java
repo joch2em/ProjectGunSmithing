@@ -2,7 +2,7 @@ package joch2em.projectgunsmithing;
 
 import joch2em.projectgunsmithing.blocks.Gun_configurator;
 import joch2em.projectgunsmithing.blocks.Refined_iron_block;
-//import joch2em.projectgunsmithing.blocks.entity.GunConfiguratorEntity;
+import joch2em.projectgunsmithing.blocks.entity.Gun_Configurator_Entity;
 import joch2em.projectgunsmithing.items.Full_auto_rifle;
 import joch2em.projectgunsmithing.items.Refined_iron_ingot;
 import joch2em.projectgunsmithing.items.Refined_iron_nugget;
@@ -68,10 +68,10 @@ public class ProjectGunSmithing implements ModInitializer {
 	//ENTITIES
 
 
-	public static BlockEntityType<GunConfiguratorEntity> GUN_CONFIGURATOR_BLOCK_ENTITY =
+	public static BlockEntityType<Gun_Configurator_Entity> GUN_CONFIGURATOR_BLOCK_ENTITY =
 		//replaces modblockentities.java
 		Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(ProjectGunSmithing.MOD_ID, "gun_configurator"),
-				FabricBlockEntityTypeBuilder.create(GunConfiguratorEntity::new,
+				FabricBlockEntityTypeBuilder.create(Gun_Configurator_Entity::new,
 						ProjectGunSmithing.GUN_CONFIGURATOR_BLOCK).build(null));
 
 

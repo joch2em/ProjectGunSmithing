@@ -1,7 +1,6 @@
 package joch2em.projectgunsmithing.blocks.entity;
 
 import joch2em.projectgunsmithing.ProjectGunSmithing;
-import joch2em.projectgunsmithing.blocks.Gun_configurator;
 import joch2em.projectgunsmithing.items.inventory.ImplementedInventory;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -32,7 +31,7 @@ public class Gun_Configurator_Entity extends BlockEntity implements NamedScreenH
 
     @Override
     public Text getDisplayName() {
-        return new Text("Lightning Channeler");
+        return Text.of("Gun Configurator");
     }
 
     @Nullable
@@ -58,7 +57,7 @@ public class Gun_Configurator_Entity extends BlockEntity implements NamedScreenH
         super.writeNbt(nbt);
     }
 
-    public static void tick(World world, BlockPos pos, BlockState state, LightningChannelerBlockEntity entity) {
+    public static void tick(World world, BlockPos pos, BlockState state, Gun_Configurator_Entity entity) {
         if(hasRecipe(entity) && world.isThundering() && hasNotReachedStackLimit(entity)) {
             craftItem(entity);
 
@@ -69,21 +68,21 @@ public class Gun_Configurator_Entity extends BlockEntity implements NamedScreenH
         }
     }
 
-    private static void craftItem(LightningChannelerBlockEntity entity) {
+    private static void craftItem(Gun_Configurator_Entity entity) {
         entity.removeStack(0, 1);
         entity.removeStack(1, 1);
 
         entity.setStack(2, new ItemStack(ProjectGunSmithing.REFINED_IRON_INGOT, entity.getStack(2).getCount() + 1));
     }
 
-    private static boolean hasRecipe(LightningChannelerBlockEntity entity) {
+    private static boolean hasRecipe(Gun_Configurator_Entity entity) {
         boolean hasItemInFirstSlot = entity.getStack(0).getItem() == ProjectGunSmithing.REFINED_IRON_INGOT;
         boolean hasItemInSecondSlot = entity.getStack(1).getItem() == ProjectGunSmithing.FULL_AUTO_RIFLE;
 
         return hasItemInFirstSlot && hasItemInSecondSlot;
     }
 
-    private static boolean hasNotReachedStackLimit(Gun_CONFIGURATOR_BLOCK_ENTITY entity) {
+    private static boolean hasNotReachedStackLimit(Gun_Configurator_Entity entity) {
         return entity.getStack(2).getCount() < entity.getStack(2).getMaxCount();
     }
 }

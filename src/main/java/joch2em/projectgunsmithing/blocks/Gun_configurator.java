@@ -1,7 +1,7 @@
 package joch2em.projectgunsmithing.blocks;
 
 import joch2em.projectgunsmithing.ProjectGunSmithing;
-import joch2em.projectgunsmithing.blocks.entity.GunConfiguratorEntity;
+import joch2em.projectgunsmithing.blocks.entity.Gun_Configurator_Entity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -44,8 +44,8 @@ public class Gun_configurator extends BlockWithEntity implements BlockEntityProv
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof GunConfiguratorEntity) {
-                ItemScatterer.spawn(world, pos, (GunConfiguratorEntity)blockEntity);
+            if (blockEntity instanceof Gun_Configurator_Entity) {
+                ItemScatterer.spawn(world, pos, (Gun_Configurator_Entity)blockEntity);
                 world.updateComparators(pos,this);
             }
             super.onStateReplaced(state, world, pos, newState, moved);
@@ -55,13 +55,13 @@ public class Gun_configurator extends BlockWithEntity implements BlockEntityProv
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        BlockEntityType<GunConfiguratorEntity> type = ProjectGunSmithing.GUN_CONFIGURATOR_BLOCK_ENTITY;
-        return new GunConfiguratorEntity(type, pos, state);
+        BlockEntityType<Gun_Configurator_Entity> type = ProjectGunSmithing.GUN_CONFIGURATOR_BLOCK_ENTITY;
+        return new Gun_Configurator_Entity(type, pos, state);
     }
 
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ProjectGunSmithing.GUN_CONFIGURATOR_BLOCK_ENTITY, GunConfiguratorEntity::tick);
+        return checkType(type, ProjectGunSmithing.GUN_CONFIGURATOR_BLOCK_ENTITY, Gun_Configurator_Entity::tick);
     }
 }
