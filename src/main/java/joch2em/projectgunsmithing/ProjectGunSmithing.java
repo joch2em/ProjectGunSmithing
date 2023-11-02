@@ -8,22 +8,33 @@ import net.minecraft.util.registry.Registry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+// to run the project go in the terminal and run:
+//./gradlew run --info
+
+
 public class ProjectGunSmithing implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
-    public static final Logger LOGGER = LoggerFactory.getLogger("projectgunsmithing");
+	public static final Logger LOGGER = LoggerFactory.getLogger("projectgunsmithing");
 
 	public static final Item modItem = new Items(new Item.Settings().group(ItemGroup.MISC));
+
 	@Override
 	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
-		LOGGER.info("Hello Fabric world!");
+		LOGGER.info("Guns Guns Guns!");
+		registerItems();
+	}
 
-		// registering an item called refined_iron with the id test.refined_iron
-		Registry.register(Registry.ITEM, new Identifier("gunsmithing", "refined_iron"), modItem);
-		LOGGER.info("Registered item!");
+	private void registerItems() {
+		try {
+			Registry.register(Registry.ITEM, new Identifier("gunsmithing", "refined_iron"), modItem);
+			Registry.register(Registry.ITEM, new Identifier("gunsmithing", "refined_iron_block"), modItem);
+			LOGGER.info("Registered item!");
+		} catch (Exception e) {
+			LOGGER.error("Could not register item!");
+		}
 	}
 }
+
+
