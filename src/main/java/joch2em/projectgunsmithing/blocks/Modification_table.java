@@ -2,8 +2,8 @@ package joch2em.projectgunsmithing.blocks;
 
 import net.minecraft.block.Block;
 
-public class Refined_iron_block extends Block {
-    public Refined_iron_block(Settings settings) {
+public class Modification_table extends Block {
+    public Modification_table(Settings settings) {
         super(settings);
     }
 }

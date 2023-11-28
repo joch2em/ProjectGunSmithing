@@ -1,9 +1,9 @@
 package joch2em.projectgunsmithing;
 
-import joch2em.projectgunsmithing.blocks.Gun_configurator;
-import joch2em.projectgunsmithing.blocks.Refined_iron_block;
-import joch2em.projectgunsmithing.items.Refined_iron_ingot;
-import joch2em.projectgunsmithing.items.Refined_iron_nugget;
+import joch2em.projectgunsmithing.blocks.Modification_table;
+import joch2em.projectgunsmithing.blocks.Basic_steel_block;
+import joch2em.projectgunsmithing.items.Basic_steel_ingot;
+import joch2em.projectgunsmithing.items.Basic_steel_nugget;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -34,20 +34,20 @@ public class ProjectGunSmithing implements ModInitializer {
 	//INITIATE BLOCK/ITEM/ENTITIES HERE
 
 	//ITEMS
-	public static final Item REFINED_IRON_INGOT = new Refined_iron_ingot(new Item.Settings());
-	public static final Item REFINED_IRON_NUGGET = new Refined_iron_nugget(new Item.Settings());
+	public static final Item BASIC_STEEL_INGOT = new Basic_steel_ingot(new Item.Settings());
+	public static final Item BASIC_STEEL_NUGGET = new Basic_steel_nugget(new Item.Settings());
 
 	//BLOCKS
 
-	public static final Block REFINED_IRON_BLOCK = new Refined_iron_block(FabricBlockSettings.of(Material.METAL).strength(4.0f));
-	public static final Block GUN_CONFIGURATOR = new Gun_configurator(FabricBlockSettings.of(Material.REPAIR_STATION).strength(2.0f));
+	public static final Block BASIC_STEEL_BLOCK = new Basic_steel_block(FabricBlockSettings.of(Material.METAL).strength(4.0f));
+	public static final Block MODIFICATION_TABLE = new Modification_table(FabricBlockSettings.of(Material.REPAIR_STATION).strength(2.0f));
 	private static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(new Identifier(MOD_ID, "gunsmithing"))
-			.icon(() -> new ItemStack(REFINED_IRON_INGOT))
+			.icon(() -> new ItemStack(BASIC_STEEL_INGOT))
 			.appendItems(((itemStacks, itemGroup) -> {
-				itemStacks.add(new ItemStack(REFINED_IRON_BLOCK));
-				itemStacks.add(new ItemStack(REFINED_IRON_INGOT));
-				itemStacks.add(new ItemStack(REFINED_IRON_NUGGET));
-				itemStacks.add(new ItemStack(GUN_CONFIGURATOR));
+				itemStacks.add(new ItemStack(BASIC_STEEL_BLOCK));
+				itemStacks.add(new ItemStack(BASIC_STEEL_INGOT));
+				itemStacks.add(new ItemStack(BASIC_STEEL_NUGGET));
+				itemStacks.add(new ItemStack(MODIFICATION_TABLE));
 			}))
 			.build();
 
@@ -60,12 +60,12 @@ public class ProjectGunSmithing implements ModInitializer {
 	private void registerItems() {
 		// REGISTER THE ITEMS/BLOCKS/ENTITIES HERE
 		try {
-			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "refined_iron_ingot"), REFINED_IRON_INGOT);
-			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "refined_iron_nugget"), REFINED_IRON_NUGGET);
-			Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "refined_iron_block"), REFINED_IRON_BLOCK);
-			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "refined_iron_block"), new BlockItem(REFINED_IRON_BLOCK, new FabricItemSettings()));
-			Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "gun_configurator"), GUN_CONFIGURATOR);
-			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "gun_configurator"), new BlockItem(GUN_CONFIGURATOR, new FabricItemSettings()));
+			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "refined_iron_ingot"), BASIC_STEEL_INGOT);
+			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "refined_iron_nugget"), BASIC_STEEL_NUGGET);
+			Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "refined_iron_block"), BASIC_STEEL_BLOCK);
+			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "refined_iron_block"), new BlockItem(BASIC_STEEL_BLOCK, new FabricItemSettings()));
+			Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "gun_configurator"), MODIFICATION_TABLE);
+			Registry.register(Registry.ITEM, new Identifier(MOD_ID, "gun_configurator"), new BlockItem(MODIFICATION_TABLE, new FabricItemSettings()));
 
 			LOGGER.info("Registered items!");
 		} catch (Exception e) {
